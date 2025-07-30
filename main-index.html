@@ -1,0 +1,445 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+
+  <title>judul</title>
+
+  <meta name="description" content="Memuat deskripsi..." id="meta-description" />  
+  <meta name="author" content="blog" id="meta-author" />  
+
+  <script>  
+    (function() {  
+      const canonical = document.createElement('link');  
+      canonical.rel = 'canonical';  
+      let url = location.protocol + '//' + location.hostname + location.pathname;  
+      if (url.endsWith('/')) {  
+        url = url.slice(0, -1);  
+      }  
+      canonical.href = url || (location.protocol + '//' + location.hostname);  
+      document.head.appendChild(canonical);  
+    })();  
+  </script>  
+
+  <meta name="theme-color" content="#ffffff">  
+  <link rel="icon" href="https://raw.githubusercontent.com/hijiduatilu17plus3/0001/refs/heads/main/favicon.ico" type="image/x-icon">  
+  <link rel="icon" href="https://raw.githubusercontent.com/hijiduatilu17plus3/0001/refs/heads/main/favicon.png" type="image/png">  
+  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/hijiduatilu17plus3/0001/refs/heads/main/apple-touch-icon.png">  
+  <link rel="manifest" href="https://raw.githubusercontent.com/hijiduatilu17plus3/0001/refs/heads/main/site.webmanifest">  
+  <script type="text/javascript">  
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};  
+    m[i].l=1*new Date();  
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}  
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})  
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");  
+
+    ym(103370320, "init", {  
+      clickmap:true,  
+      trackLinks:true,  
+      accurateTrackBounce:true  
+    });  
+  </script>  
+  <noscript><div><img src="https://mc.yandex.ru/watch/103370320" style="position:absolute; left:-9999px;" alt="" /></div></noscript>  
+
+  <style>  
+pre[class*="language-"] {
+  background: #1e1e1e;
+  color: #dcdcdc;
+  border-radius: 8px;
+  padding: 1em;
+  overflow: auto;
+  font-size: 0.6em;
+  margin: 2em 0;
+  max-width: 100%;
+  position: relative;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  box-shadow: 0 0 0 1px #333, 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+.copy-btn {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  font-size: 0.9em;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0.7;
+  z-index: 10;
+}
+.copy-btn:hover {
+  opacity: 1;
+}
+pre::-webkit-scrollbar {
+  height: 8px;
+}
+pre::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 4px;
+}
+    body, html { font-family: 'Inter', sans-serif; padding: 5px; margin: 0 auto; width: 100%; max-width: 960px; overflow-x: hidden; box-sizing: border-box; }  
+    main { max-width: 1000px; margin: auto; }  
+    #indrixFooterGallery { display: flex; flex-wrap: wrap; justify-content: center; }  
+    figure { flex: 1 1 280px; max-width: 300px; margin: 1rem; background: #fff; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; box-shadow: 0 0 5px rgba(0,0,0,0.05); }  
+    figure img { width: 100%; height: auto; display: block; cursor: pointer; }  
+    figure h3 { font-size: 1rem; font-weight: bold; padding: 0.5rem; margin: 0; }  
+    .indrixLabels { padding: 0.5rem; border-top: 1px solid #eee; display: flex; flex-wrap: wrap; gap: 4px; }  
+    .indrixLabels span { background: #ffffff; padding: 2px 6px; border-radius: 4px; font-size: 0.85em; }  
+    .pagination { text-align: center; margin: 2rem 0 1rem; }  
+    .pagination button { background: #333; color: #fff; border: none; padding: 0.5rem 1.5rem; border-radius: 4px; cursor: pointer; margin: 0 0.5rem; }  
+    @media (max-width: 600px) { figure { flex: 1 1 100%; max-width: 100%; } }  
+    a { text-decoration: none; }  
+  .sitemap-container {
+    max-width: 768px;
+    margin: 2rem auto;
+    padding: 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #ffffff;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+  }
+
+  .series {
+    margin-bottom: 2rem;
+  }
+
+  .series-header {
+    font-weight: 600;
+    font-size: 16px;
+    color: #24292f;
+    margin-bottom: 0.5rem;
+    padding-left: 0.25rem;
+    border-left: 4px solid #0969da;
+    background-color: #f6f8fa;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+  }
+
+  .series-content {
+    counter-reset: item;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-left: 1.25rem;
+  }
+
+  .series-content a {
+    position: relative;
+    color: #0969da;
+    text-decoration: none;
+    padding-left: 1.5rem;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .series-content a::before {
+    counter-increment: item;
+    content: counter(item) ".";
+    position: absolute;
+    left: 0;
+    color: #57606a;
+    font-weight: 500;
+  }
+
+  .series-content a:hover {
+    text-decoration: underline;
+    background-color: #f6f8fa;
+    border-radius: 4px;
+  }
+
+  @media (max-width: 600px) {
+    .sitemap-container {
+      padding: 0.75rem;
+    }
+
+    .series-header {
+      font-size: 15px;
+    }
+
+    .series-content a {
+      font-size: 13.5px;
+    }
+  }
+  </style>  
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WT93W2845E"></script>  
+  <script>  
+    window.dataLayer = window.dataLayer || [];  
+    function gtag(){ dataLayer.push(arguments); }  
+    gtag('js', new Date());  
+    gtag('config', 'G-WT93W2845E');   
+    gtag('config', 'G-XHCGVT06EJ');   
+    gtag('config', 'G-L239NSVMTN');   
+    gtag('config', 'G-XK27E9HEDZ');   
+  </script>  
+  <script>  
+    (function(w,d,s,l,i){  
+      w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});  
+      var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';  
+      j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;  
+      f.parentNode.insertBefore(j,f);  
+    })(window,document,'script','dataLayer','GTM-NWD665DQ');  
+  </script>  
+</head>  
+<body>  
+
+<main>  
+
+<article>
+<b><div style="padding:5%;">Build a blog using Jekyll and host it with GitHub Pages (using Mediumish theme)</div></b>
+<div class="sitemap-container">
+  <div class="series">
+    <div class="series-header">📚 Series 1: Complete Guide to Using the Jekyll Mediumish Theme on GitHub Pages</div>
+    <div class="series-content">
+      <a href="/indri1.html">Part 1: Introduction to the Stack</a>
+      <a href="https://t.co/D35Ail1BG5">Part 2: Setting Up GitHub Pages Repository</a>
+      <a href="https://t.co/CLjQmZ1JcG">Part 3: Installing Jekyll Locally for Testing</a>
+      <a href="https://t.co/po4dGoBclg">Part 4: Cloning the Mediumish Theme from GitHub</a>
+      <a href="https://t.co/E0xKDQlxXT">Part 5: Understanding the Directory Structure</a>
+      <a href="https://t.co/8HoLfoVYOd">Part 6: How to Configure _config.yml</a>
+      <a href="https://t.co/MssovKJ5gr">Part 7: Writing Your First Post</a>
+      <a href="https://t.co/Nk5bnzBaBD">Part 8: Creating Pages and Menus</a>
+      <a href="https://t.co/ecMvMjyXb9">Part 9: Uploading to GitHub Pages</a>
+      <a href="https://t.co/cWR6c2PCBm">Part 10: Troubleshooting Deployment Issues</a>
+    </div>
+  </div>
+</div>
+
+
+</article>
+
+
+<div style="height:1px;width:100%;overflow:auto;">
+  <section id="indrixFooterGallery"></section>  
+  <div class="pagination">  
+    <button onclick="loadPreviousPage()" id="prevBtn" style="display: none;">Previous</button>  
+    <button onclick="loadNextPage()">Next</button>  
+  </div>  
+  </div>
+</main>  
+
+<script>
+(function(){
+  const blogId = "3849070220815751744";
+  const label = "";
+  let startIndex = 1510;
+  const maxResults = 10;
+  const container = document.getElementById("indrixFooterGallery");
+  const prevBtn = document.getElementById("prevBtn");
+  const fallbackImage = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9ZGc1m9JOOEC2Gszz7Dr1qLXswQeaIHiIbYb8r6oBPZLL-9TvoEgiF7bt-vIRi_hwV1f3BZlkR3-27vNutWCLzRXXdZhPGtgohBB5DkFppKlaf6gzsmK_8f9O3lW40xqcyTybJIfq_GWycI4xP0JfBURCRoBih-POfeWt7c9gHareCwIhB1O1a6z0Cdw/s1600/images%20%281%29.jpeg";
+
+  let globalLabelCounter = 1;
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        img.src = img.dataset.src;
+        img.removeAttribute('data-src');
+        img.setAttribute('decoding', 'async');
+        observer.unobserve(img);
+      }
+    });
+  }, { rootMargin: "200px" });
+
+  function fetchPosts() {
+    const base = `https://www.blogger.com/feeds/${blogId}/posts/default`;
+    const labelPath = label ? `/-/` + encodeURIComponent(label) : "";
+    const url = `${base}${labelPath}?alt=json-in-script&start-index=${startIndex}&max-results=${maxResults}&callback=showIndrixPosts`;
+    const s = document.createElement("script");
+    s.src = url;
+    document.body.appendChild(s);
+    if (startIndex <= 1) {
+      prevBtn.style.display = "none";
+    } else {
+      prevBtn.style.display = "inline-block";
+    }
+  }
+
+  window.showIndrixPosts = function(data) {
+    if (!data.feed.entry) return;
+    container.innerHTML = "";
+
+    data.feed.entry.forEach(entry => {
+      const content = entry.content?.$t || "";
+      const imgMatch = content.match(/<img[^>]+src="([^"]+)"/);
+      const imageUrl = imgMatch ? imgMatch[1].replace(/\/s\d{2,4}(-c)?\//, "/s1600/") : fallbackImage;
+      const title = entry.title?.$t || "Untitled";
+      const postLabels = entry.category ? entry.category.map(cat => cat.term) : [];
+
+      const labelsHtml = `<ul>` + postLabels.map(lab => {
+        if (globalLabelCounter <= 150) {
+          const labelLink = `/post${String(globalLabelCounter).padStart(2, '0')}.html`;
+          globalLabelCounter++;
+          return `<li><a href="${labelLink}"><span>${lab}</span></a></li>`;
+        } else {
+          return `<li><span>${lab}</span></li>`;
+        }
+      }).join('') + `</ul>`;
+
+      const fig = document.createElement('figure');
+      fig.innerHTML = `
+        <img data-src="${imageUrl}" alt="${title}" loading="lazy" decoding="async" />
+        <div class="indrixLabels">${labelsHtml}</div>
+      `;
+      container.appendChild(fig);
+      const img = fig.querySelector('img');
+      observer.observe(img);
+    });
+  };
+
+  window.loadNextPage = function() {
+    startIndex += maxResults;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    fetchPosts();
+  };
+
+  window.loadPreviousPage = function() {
+    if (startIndex > 1) {
+      startIndex -= maxResults;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      fetchPosts();
+    }
+  };
+
+  fetchPosts();
+})();
+</script>
+
+<footer style="text-align: center; padding: 30px 20px; font-size: 14px; color: #666;">  
+	<center style="height:1px;width:100%;overflow:auto;">
+ <!-- ads by wi3kas5alimexy.blogspot.com 
+<script type="text/javascript">
+	atOptions = {
+		'key' : '3f672ec602df797642e9dbdfb337569e',
+		'format' : 'iframe',
+		'height' : 250,
+		'width' : 300,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/3f672ec602df797642e9dbdfb337569e/invoke.js"></script>
+<script type="text/javascript">
+	atOptions = {
+		'key' : '40f1c610090584610030c74709f82896',
+		'format' : 'iframe',
+		'height' : 90,
+		'width' : 728,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/40f1c610090584610030c74709f82896/invoke.js"></script>
+<script type="text/javascript">
+	atOptions = {
+		'key' : '0cbdb3ac944efc14e7e0fe852e3ad3a5',
+		'format' : 'iframe',
+		'height' : 600,
+		'width' : 160,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/0cbdb3ac944efc14e7e0fe852e3ad3a5/invoke.js"></script>
+<script type="text/javascript">
+	atOptions = {
+		'key' : 'a543729c95de3341d9f240b9b941edfe',
+		'format' : 'iframe',
+		'height' : 300,
+		'width' : 160,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/a543729c95de3341d9f240b9b941edfe/invoke.js"></script>
+<script type="text/javascript">
+	atOptions = {
+		'key' : '0acda123c359e1953d2186b0a74f0364',
+		'format' : 'iframe',
+		'height' : 60,
+		'width' : 468,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/0acda123c359e1953d2186b0a74f0364/invoke.js"></script>
+<script type='text/javascript' src='//pl27258148.profitableratecpm.com/fe/ec/ea/feeceae70fe7b8956ffc6e2e4f53991a.js'></script>
+<script type='text/javascript' src='//pl16804628.profitableratecpm.com/e7/19/45/e71945928ae8f99b0bee4c0d1219be5a.js'></script>
+<script type="text/javascript">
+	atOptions = {
+		'key' : '1c081498ef1d1996c45172aa313d1bdb',
+		'format' : 'iframe',
+		'height' : 50,
+		'width' : 320,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/1c081498ef1d1996c45172aa313d1bdb/invoke.js"></script>
+-->
+</center>
+
+<hr /><br />
+
+    <ul style="list-style:none;display:flex;gap:1rem;justify-content:center;padding:0;">
+      <li><a href="/">Home</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+      <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+      <li><a href="/terms-and-conditions.html">Terms & Conditions</a></li>
+    </ul>
+  
+  <div>&copy; <span id="current-year"></span> <span id="main-heading2"></span> All rights reserved.</div>  
+  <script>  
+    (function() {  
+      const domain = window.location.hostname;  
+      const parts = domain.split(".");  
+      const subdomain = parts.length > 2 ? parts[0] : "blog";  
+      const titleCase = subdomain.charAt(0).toUpperCase() + subdomain.slice(1);  
+
+      document.getElementById("current-year").textContent = new Date().getFullYear();  
+      document.getElementById("main-heading2").textContent = titleCase;  
+    })();  
+  </script>  
+</footer>  
+
+
+<!-- Prism.js dark theme -->
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('pre code').forEach(function (block) {
+    // Tambah class Prism jika belum ada
+    if (!block.className.match(/language-/)) {
+      block.classList.add('language-html');
+    }
+
+    const pre = block.parentNode;
+
+    // Tambah tombol copy
+    if (!pre.querySelector('.copy-btn')) {
+      const button = document.createElement('button');
+      button.className = 'copy-btn';
+      button.textContent = 'Copy';
+      pre.appendChild(button);
+
+      button.addEventListener('click', function () {
+        navigator.clipboard.writeText(block.innerText).then(function () {
+          button.textContent = 'Copied!';
+          setTimeout(() => button.textContent = 'Copy', 2000);
+        });
+      });
+    }
+  });
+
+  if (window.Prism) Prism.highlightAll();
+});
+</script>
+
+</body>  
+</html>
