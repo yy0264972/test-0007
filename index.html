@@ -144,138 +144,153 @@ document.addEventListener("DOMContentLoaded", () => {
   document.head.appendChild(script);
 });
 </script>
-<article>
 
-<div class="feed">
-  <div class="feed-item">
+<article>
+	
+<style>
+  .feed-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .feed-grid h2 {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+
+  .feed-grid p {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 0;
+  }
+
+  .feed-grid img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media (max-width: 480px) {
+    .feed-grid {
+      gap: 1rem;
+    }
+
+    .feed-grid h2 {
+      font-size: 0.95rem;
+    }
+
+    .feed-grid p {
+      font-size: 0.85rem;
+    }
+  }
+</style>
+
+<div class="feed-grid">
+
+  <div>
     <a href="/How Do You Customize Jekyll Behavior with config yml on GitHub Pages.html">
       <img src="/How Do You Customize Jekyll Behavior with config yml on GitHub Pages.png" alt="How Do You Customize Jekyll Behavior with config yml on GitHub Pages" loading="lazy">
-      <h2>How Do You Customize Jekyll Behavior with config yml on GitHub Pages</h2>
     </a>
-    <p>Learn how to fine-tune your Jekyll site behavior using the powerful _config.yml file on GitHub Pages.</p>
+    <h2>
+      <a href="/How Do You Customize Jekyll Behavior with config yml on GitHub Pages.html">How Do You Customize Jekyll Behavior with config yml on GitHub Pages</a>
+    </h2>
+    <p>Customize your Jekyll site with config options for better control over layout and output.</p>
   </div>
 
-  <div class="feed-item">
+  <div>
     <a href="/How Do You Publish a Jekyll Site to GitHub Pages.html">
       <img src="/How Do You Publish a Jekyll Site to GitHub Pages.png" alt="How Do You Publish a Jekyll Site to GitHub Pages" loading="lazy">
-      <h2>How Do You Publish a Jekyll Site to GitHub Pages</h2>
     </a>
-    <p>A step-by-step guide to getting your Jekyll site live using GitHub Pages with no hassle.</p>
+    <h2>
+      <a href="/How Do You Publish a Jekyll Site to GitHub Pages.html">How Do You Publish a Jekyll Site to GitHub Pages</a>
+    </h2>
+    <p>Learn to deploy your Jekyll blog using GitHub Pages for free hosting and seamless integration.</p>
   </div>
 
-  <div class="feed-item">
+  <div>
     <a href="/How Can You Convert an HTML Project into a Jekyll Site Effectively.html">
       <img src="/How Can You Convert an HTML Project into a Jekyll Site Effectively.png" alt="How Can You Convert an HTML Project into a Jekyll Site Effectively" loading="lazy">
-      <h2>How Can You Convert an HTML Project into a Jekyll Site Effectively</h2>
     </a>
-    <p>Transform your plain HTML project into a scalable, Jekyll-powered site with this practical guide.</p>
+    <h2>
+      <a href="/How Can You Convert an HTML Project into a Jekyll Site Effectively.html">How Can You Convert an HTML Project into a Jekyll Site Effectively</a>
+    </h2>
+    <p>Convert your static HTML files into a Jekyll site using layouts, includes, and proper structure.</p>
   </div>
 
-  <div class="feed-item">
+  <div>
     <a href="/Which GitHub Pages Type Suits Your Project.html">
       <img src="/Which GitHub Pages Type Suits Your Project.png" alt="Which GitHub Pages Type Suits Your Project" loading="lazy">
-      <h2>Which GitHub Pages Type Suits Your Project</h2>
     </a>
-    <p>Discover whether project pages or user/org pages are better for your use case.</p>
+    <h2>
+      <a href="/Which GitHub Pages Type Suits Your Project.html">Which GitHub Pages Type Suits Your Project</a>
+    </h2>
+    <p>Choose between user sites and project sites on GitHub Pages based on your project's needs.</p>
   </div>
 
-  <div class="feed-item">
+  <div>
     <a href="/How Do I Build a Jekyll Site on GitHub Pages.html">
       <img src="/How Do I Build a Jekyll Site on GitHub Pages.png" alt="How Do I Build a Jekyll Site on GitHub Pages" loading="lazy">
-      <h2>How Do I Build a Jekyll Site on GitHub Pages</h2>
     </a>
-    <p>A beginner-friendly guide to building your first Jekyll website directly on GitHub.</p>
+    <h2>
+      <a href="/How Do I Build a Jekyll Site on GitHub Pages.html">How Do I Build a Jekyll Site on GitHub Pages</a>
+    </h2>
+    <p>Step-by-step tutorial to build a fully functional static site with Jekyll and GitHub Pages.</p>
   </div>
 
-  <div class="feed-item">
+  <div>
     <a href="/How Can You Preview Your Jekyll Site Locally.html">
       <img src="/How Can You Preview Your Jekyll Site Locally.png" alt="How Can You Preview Your Jekyll Site Locally" loading="lazy">
-      <h2>How Can You Preview Your Jekyll Site Locally</h2>
     </a>
-    <p>Before publishing, see how your site looks using local development with Jekyll.</p>
+    <h2>
+      <a href="/How Can You Preview Your Jekyll Site Locally.html">How Can You Preview Your Jekyll Site Locally</a>
+    </h2>
+    <p>Preview your Jekyll site on localhost before publishing to catch issues early.</p>
   </div>
 
-  <div class="feed-item">
+  <div>
     <a href="/How to install Jekyll locally for building static websites.html">
       <img src="/How to install Jekyll locally for building static websites.png" alt="How to install Jekyll locally for building static websites" loading="lazy">
-      <h2>How to install Jekyll locally for building static websites</h2>
     </a>
-    <p>Start creating static websites by installing Jekyll locally on your machine the right way.</p>
+    <h2>
+      <a href="/How to install Jekyll locally for building static websites.html">How to install Jekyll locally for building static websites</a>
+    </h2>
+    <p>Install Ruby and Jekyll locally to develop and test static sites on your machine.</p>
   </div>
 
-  <div class="feed-item">
+  <div>
     <a href="/How to Set Up Your Local Jekyll Development Environment.html">
       <img src="/How to Set Up Your Local Jekyll Development Environment.png" alt="How to Set Up Your Local Jekyll Development Environment" loading="lazy">
-      <h2>How to Set Up Your Local Jekyll Development Environment</h2>
     </a>
-    <p>Follow this setup tutorial to build, preview, and debug your Jekyll blog locally with ease.</p>
+    <h2>
+      <a href="/How to Set Up Your Local Jekyll Development Environment.html">How to Set Up Your Local Jekyll Development Environment</a>
+    </h2>
+    <p>Set up a full development environment for Jekyll including Bundler, Ruby, and gem packages.</p>
   </div>
 
-  <div class="feed-item">
+  <div>
     <a href="/How Do I Build a Website with GitHub Pages and Jekyll.html">
       <img src="/How Do I Build a Website with GitHub Pages and Jekyll.png" alt="How Do I Build a Website with GitHub Pages and Jekyll" loading="lazy">
-      <h2>How Do I Build a Website with GitHub Pages and Jekyll</h2>
     </a>
-    <p>Build and launch a complete website using Jekyll and GitHub Pages from scratch.</p>
+    <h2>
+      <a href="/How Do I Build a Website with GitHub Pages and Jekyll.html">How Do I Build a Website with GitHub Pages and Jekyll</a>
+    </h2>
+    <p>Discover how to build a professional blog or personal site with GitHub and Jekyll.</p>
   </div>
 
-  <div class="feed-item">
-    <a href="/Are GitHub Pages and Jekyll Right for Your Static Website.httml">
+  <div>
+    <a href="/Are GitHub Pages and Jekyll Right for Your Static Website.html">
       <img src="/Are GitHub Pages and Jekyll Right for Your Static Website.png" alt="Are GitHub Pages and Jekyll Right for Your Static Website" loading="lazy">
-      <h2>Are GitHub Pages and Jekyll Right for Your Static Website</h2>
     </a>
-    <p>Explore the pros and cons of using GitHub Pages + Jekyll to build your next site.</p>
+    <h2>
+      <a href="/Are GitHub Pages and Jekyll Right for Your Static Website.html">Are GitHub Pages and Jekyll Right for Your Static Website</a>
+    </h2>
+    <p>Evaluate the pros and cons of using GitHub Pages and Jekyll for your next static project.</p>
   </div>
+
 </div>
 
-<style>
-.feed {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-.feed-item {
-  background: #fafafa;
-  border-radius: 12px;
-  overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.feed-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-}
-.feed-item a {
-  color: inherit;
-  text-decoration: none;
-  display: block;
-}
-.feed-item figure {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-}
-.feed-item img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-bottom: 1px solid #eee;
-}
-.feed-item figcaption {
-  padding: 1rem;
-}
-.feed-item h2 {
-  font-size: 1.1rem;
-  margin: 0 0 0.5rem;
-  color: #222;
-}
-.feed-item p {
-  font-size: 0.9rem;
-  color: #666;
-  line-height: 1.4;
-  margin: 0;
-}
-</style>
 </article>
 
 
@@ -296,7 +311,7 @@ document.addEventListener("DOMContentLoaded", () => {
 (function(){
   const blogId = "3849070220815751744";
   const label = "";
-  let startIndex = 1840;
+  let startIndex = 1860;
   const maxResults = 10;
   const container = document.getElementById("indrixFooterGallery");
   const prevBtn = document.getElementById("prevBtn");
