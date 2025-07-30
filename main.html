@@ -1,0 +1,586 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+
+  <title>GitHub Pages and Jekyll Tutorials</title>
+
+  <meta name="description" content="Discover why GitHub Pages and Jekyll are a powerful combination for building fast, secure, and easily maintainable static websites." id="meta-description" />  
+  <meta name="author" content="Admin" id="meta-author" />  
+
+  <script>  
+    (function() {  
+      const canonical = document.createElement('link');  
+      canonical.rel = 'canonical';  
+      let url = location.protocol + '//' + location.hostname + location.pathname;  
+      if (url.endsWith('/')) {  
+        url = url.slice(0, -1);  
+      }  
+      canonical.href = url || (location.protocol + '//' + location.hostname);  
+      document.head.appendChild(canonical);  
+    })();  
+  </script>  
+
+  <meta name="theme-color" content="#ffffff">  
+  <link rel="icon" href="https://raw.githubusercontent.com/hijiduatilu17plus3/0001/refs/heads/main/favicon.ico" type="image/x-icon">  
+  <link rel="icon" href="https://raw.githubusercontent.com/hijiduatilu17plus3/0001/refs/heads/main/favicon.png" type="image/png">  
+  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/hijiduatilu17plus3/0001/refs/heads/main/apple-touch-icon.png">  
+  <link rel="manifest" href="https://raw.githubusercontent.com/hijiduatilu17plus3/0001/refs/heads/main/site.webmanifest">  
+  <script type="text/javascript">  
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};  
+    m[i].l=1*new Date();  
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}  
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})  
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");  
+
+    ym(103370320, "init", {  
+      clickmap:true,  
+      trackLinks:true,  
+      accurateTrackBounce:true  
+    });  
+  </script>  
+  <noscript><div><img src="https://mc.yandex.ru/watch/103370320" style="position:absolute; left:-9999px;" alt="" /></div></noscript>  
+
+<link rel="preload" href="https://adabunalima5.github.io/file/css/css.css" as="style">
+<link rel="stylesheet" href="https://adabunalima5.github.io/file/css/css.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WT93W2845E"></script>  
+  <script>  
+    window.dataLayer = window.dataLayer || [];  
+    function gtag(){ dataLayer.push(arguments); }  
+    gtag('js', new Date());  
+    gtag('config', 'G-WT93W2845E');   
+    gtag('config', 'G-XHCGVT06EJ');   
+    gtag('config', 'G-L239NSVMTN');   
+    gtag('config', 'G-XK27E9HEDZ');   
+  </script>  
+  <script>  
+    (function(w,d,s,l,i){  
+      w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});  
+      var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';  
+      j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;  
+      f.parentNode.insertBefore(j,f);  
+    })(window,document,'script','dataLayer','GTM-NWD665DQ');  
+  </script>  
+</head>  
+<body>  
+
+
+<main>    
+<!-- Floating TOC dengan Breadcrumb SEO -->
+<div id="toc-toggle" onclick="toggleTOC()" title="Toggle TOC">
+  <svg id="toc-icon-open" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="4" y1="6" x2="20" y2="6" />
+    <line x1="4" y1="12" x2="20" y2="12" />
+    <line x1="4" y1="18" x2="20" y2="18" />
+  </svg>
+  <svg id="toc-icon-close" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+    <line x1="18" y1="6" x2="6" y2="18" />
+    <line x1="6" y1="6" x2="18" y2="18" />
+  </svg>
+</div>
+
+<div id="toc-box" style="display:none;">
+  <strong style="display:block;margin-bottom:8px;color:#fff;">Table of Contents</strong>
+  <div id="toc-list"></div>
+</div>
+
+
+
+<script>
+function toggleTOC() {
+  const tocBox = document.getElementById('toc-box');
+  const iconOpen = document.getElementById('toc-icon-open');
+  const iconClose = document.getElementById('toc-icon-close');
+  const isVisible = tocBox.style.display === 'block';
+  tocBox.style.display = isVisible ? 'none' : 'block';
+  iconOpen.style.display = isVisible ? 'inline' : 'none';
+  iconClose.style.display = isVisible ? 'none' : 'inline';
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const article = document.querySelector('article');
+  if (!article) return;
+
+  const headings = article.querySelectorAll('h2, h3, h4');
+  const tocList = document.getElementById('toc-list');
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": []
+  };
+
+  if (!headings.length) return;
+
+  const ul = document.createElement('ul');
+
+  headings.forEach((heading, index) => {
+    const id = heading.id || 'heading-' + index;
+    heading.id = id;
+
+    const li = document.createElement('li');
+    li.style.marginLeft = heading.tagName === 'H3' ? '1em' :
+                          heading.tagName === 'H4' ? '2em' : '0';
+
+    const a = document.createElement('a');
+    a.href = '#' + id;
+    a.textContent = heading.textContent.trim();
+    li.appendChild(a);
+    ul.appendChild(li);
+
+    jsonLd.itemListElement.push({
+      "@type": "ListItem",
+      "position": jsonLd.itemListElement.length + 1,
+      "name": heading.textContent.trim(),
+      "item": window.location.href.split('#')[0] + '#' + id
+    });
+  });
+
+  tocList.appendChild(ul);
+
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.textContent = JSON.stringify(jsonLd);
+  document.head.appendChild(script);
+});
+</script>
+<article>
+
+<div class="feed">
+  <div class="feed-item">
+    <a href="/How Do You Customize Jekyll Behavior with config yml on GitHub Pages.html">
+      <img src="/How Do You Customize Jekyll Behavior with config yml on GitHub Pages.png" alt="How Do You Customize Jekyll Behavior with config yml on GitHub Pages" loading="lazy">
+      <h2>How Do You Customize Jekyll Behavior with config yml on GitHub Pages</h2>
+    </a>
+    <p>Learn how to fine-tune your Jekyll site behavior using the powerful _config.yml file on GitHub Pages.</p>
+  </div>
+
+  <div class="feed-item">
+    <a href="/How Do You Publish a Jekyll Site to GitHub Pages.html">
+      <img src="/How Do You Publish a Jekyll Site to GitHub Pages.png" alt="How Do You Publish a Jekyll Site to GitHub Pages" loading="lazy">
+      <h2>How Do You Publish a Jekyll Site to GitHub Pages</h2>
+    </a>
+    <p>A step-by-step guide to getting your Jekyll site live using GitHub Pages with no hassle.</p>
+  </div>
+
+  <div class="feed-item">
+    <a href="/How Can You Convert an HTML Project into a Jekyll Site Effectively.html">
+      <img src="/How Can You Convert an HTML Project into a Jekyll Site Effectively.png" alt="How Can You Convert an HTML Project into a Jekyll Site Effectively" loading="lazy">
+      <h2>How Can You Convert an HTML Project into a Jekyll Site Effectively</h2>
+    </a>
+    <p>Transform your plain HTML project into a scalable, Jekyll-powered site with this practical guide.</p>
+  </div>
+
+  <div class="feed-item">
+    <a href="/Which GitHub Pages Type Suits Your Project.html">
+      <img src="/Which GitHub Pages Type Suits Your Project.png" alt="Which GitHub Pages Type Suits Your Project" loading="lazy">
+      <h2>Which GitHub Pages Type Suits Your Project</h2>
+    </a>
+    <p>Discover whether project pages or user/org pages are better for your use case.</p>
+  </div>
+
+  <div class="feed-item">
+    <a href="/How Do I Build a Jekyll Site on GitHub Pages.html">
+      <img src="/How Do I Build a Jekyll Site on GitHub Pages.png" alt="How Do I Build a Jekyll Site on GitHub Pages" loading="lazy">
+      <h2>How Do I Build a Jekyll Site on GitHub Pages</h2>
+    </a>
+    <p>A beginner-friendly guide to building your first Jekyll website directly on GitHub.</p>
+  </div>
+
+  <div class="feed-item">
+    <a href="/How Can You Preview Your Jekyll Site Locally.html">
+      <img src="/How Can You Preview Your Jekyll Site Locally.png" alt="How Can You Preview Your Jekyll Site Locally" loading="lazy">
+      <h2>How Can You Preview Your Jekyll Site Locally</h2>
+    </a>
+    <p>Before publishing, see how your site looks using local development with Jekyll.</p>
+  </div>
+
+  <div class="feed-item">
+    <a href="/How to install Jekyll locally for building static websites.html">
+      <img src="/How to install Jekyll locally for building static websites.png" alt="How to install Jekyll locally for building static websites" loading="lazy">
+      <h2>How to install Jekyll locally for building static websites</h2>
+    </a>
+    <p>Start creating static websites by installing Jekyll locally on your machine the right way.</p>
+  </div>
+
+  <div class="feed-item">
+    <a href="/How to Set Up Your Local Jekyll Development Environment.html">
+      <img src="/How to Set Up Your Local Jekyll Development Environment.png" alt="How to Set Up Your Local Jekyll Development Environment" loading="lazy">
+      <h2>How to Set Up Your Local Jekyll Development Environment</h2>
+    </a>
+    <p>Follow this setup tutorial to build, preview, and debug your Jekyll blog locally with ease.</p>
+  </div>
+
+  <div class="feed-item">
+    <a href="/How Do I Build a Website with GitHub Pages and Jekyll.html">
+      <img src="/How Do I Build a Website with GitHub Pages and Jekyll.png" alt="How Do I Build a Website with GitHub Pages and Jekyll" loading="lazy">
+      <h2>How Do I Build a Website with GitHub Pages and Jekyll</h2>
+    </a>
+    <p>Build and launch a complete website using Jekyll and GitHub Pages from scratch.</p>
+  </div>
+
+  <div class="feed-item">
+    <a href="/Are GitHub Pages and Jekyll Right for Your Static Website.httml">
+      <img src="/Are GitHub Pages and Jekyll Right for Your Static Website.png" alt="Are GitHub Pages and Jekyll Right for Your Static Website" loading="lazy">
+      <h2>Are GitHub Pages and Jekyll Right for Your Static Website</h2>
+    </a>
+    <p>Explore the pros and cons of using GitHub Pages + Jekyll to build your next site.</p>
+  </div>
+</div>
+
+<style>
+.feed {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+.feed-item {
+  background: #fafafa;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.feed-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+.feed-item a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+.feed-item figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.feed-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+.feed-item figcaption {
+  padding: 1rem;
+}
+.feed-item h2 {
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem;
+  color: #222;
+}
+.feed-item p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+  margin: 0;
+}
+</style>
+</article>
+
+
+
+
+
+
+<div style="height:1px;width:100%;overflow:auto;">
+  <section id="indrixFooterGallery"></section>  
+  <div class="pagination">  
+    <button onclick="loadPreviousPage()" id="prevBtn" style="display: none;">Previous</button>  
+    <button onclick="loadNextPage()">Next</button>  
+  </div>  
+  </div>
+</main>  
+
+<script>
+(function(){
+  const blogId = "3849070220815751744";
+  const label = "";
+  let startIndex = 1840;
+  const maxResults = 10;
+  const container = document.getElementById("indrixFooterGallery");
+  const prevBtn = document.getElementById("prevBtn");
+  const fallbackImage = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9ZGc1m9JOOEC2Gszz7Dr1qLXswQeaIHiIbYb8r6oBPZLL-9TvoEgiF7bt-vIRi_hwV1f3BZlkR3-27vNutWCLzRXXdZhPGtgohBB5DkFppKlaf6gzsmK_8f9O3lW40xqcyTybJIfq_GWycI4xP0JfBURCRoBih-POfeWt7c9gHareCwIhB1O1a6z0Cdw/s1600/images%20%281%29.jpeg";
+
+  let globalLabelCounter = 1;
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        img.src = img.dataset.src;
+        img.removeAttribute('data-src');
+        img.setAttribute('decoding', 'async');
+        observer.unobserve(img);
+      }
+    });
+  }, { rootMargin: "200px" });
+
+  function fetchPosts() {
+    const base = `https://www.blogger.com/feeds/${blogId}/posts/default`;
+    const labelPath = label ? `/-/` + encodeURIComponent(label) : "";
+    const url = `${base}${labelPath}?alt=json-in-script&start-index=${startIndex}&max-results=${maxResults}&callback=showIndrixPosts`;
+    const s = document.createElement("script");
+    s.src = url;
+    document.body.appendChild(s);
+    if (startIndex <= 1) {
+      prevBtn.style.display = "none";
+    } else {
+      prevBtn.style.display = "inline-block";
+    }
+  }
+
+  window.showIndrixPosts = function(data) {
+    if (!data.feed.entry) return;
+    container.innerHTML = "";
+
+    data.feed.entry.forEach(entry => {
+      const content = entry.content?.$t || "";
+      const imgMatch = content.match(/<img[^>]+src="([^"]+)"/);
+      const imageUrl = imgMatch ? imgMatch[1].replace(/\/s\d{2,4}(-c)?\//, "/s1600/") : fallbackImage;
+      const title = entry.title?.$t || "Untitled";
+      const postLabels = entry.category ? entry.category.map(cat => cat.term) : [];
+
+      const labelsHtml = `<ul>` + postLabels.map(lab => {
+        if (globalLabelCounter <= 150) {
+          const labelLink = `/post${String(globalLabelCounter).padStart(2, '0')}.html`;
+          globalLabelCounter++;
+          return `<li><a href="${labelLink}"><span>${lab}</span></a></li>`;
+        } else {
+          return `<li><span>${lab}</span></li>`;
+        }
+      }).join('') + `</ul>`;
+
+      const fig = document.createElement('figure');
+      fig.innerHTML = `
+        <img data-src="${imageUrl}" alt="${title}" loading="lazy" decoding="async" />
+        <div class="indrixLabels">${labelsHtml}</div>
+      `;
+      container.appendChild(fig);
+      const img = fig.querySelector('img');
+      observer.observe(img);
+    });
+  };
+
+  window.loadNextPage = function() {
+    startIndex += maxResults;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    fetchPosts();
+  };
+
+  window.loadPreviousPage = function() {
+    if (startIndex > 1) {
+      startIndex -= maxResults;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      fetchPosts();
+    }
+  };
+
+  fetchPosts();
+})();
+</script>
+
+<header>
+  <a href="/" class="nav-brand" id="siteTitle">MyBlog</a>
+  <script>
+    const siteTitle = document.getElementById('siteTitle');
+    const host = window.location.hostname;
+    const parts = host.split('.');
+    let blogName = '';
+
+    if (parts.length >= 3) {
+      blogName = parts[parts.length - 3];
+    } else if (parts.length === 2) {
+      blogName = parts[0];
+    } else {
+      blogName = host;
+    }
+
+    blogName = blogName.charAt(0).toUpperCase() + blogName.slice(1);
+    siteTitle.textContent = blogName;
+  </script>
+  <div class="nav-actions">
+    <button class="nav-button" id="menuToggle" title="Menu" aria-label="Menu">
+      <!-- Hamburger Icon -->
+      <svg id="iconMenu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M3 6h18M3 12h18M3 18h18"/>
+      </svg>
+      <!-- Close Icon -->
+      <svg id="iconClose" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="display: none;">
+        <path d="M6 6l12 12M6 18l12-12"/>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<div id="menuPanel">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+    <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+    <li><a href="/terms-and-conditions.html">Terms & Conditions</a></li>
+  </ul>
+</div>
+
+<script>
+  const toggleBtn = document.getElementById('menuToggle');
+  const menuPanel = document.getElementById('menuPanel');
+  const iconMenu = document.getElementById('iconMenu');
+  const iconClose = document.getElementById('iconClose');
+
+  toggleBtn.addEventListener('click', () => {
+    const isVisible = menuPanel.style.display === 'block';
+    menuPanel.style.display = isVisible ? 'none' : 'block';
+    iconMenu.style.display = isVisible ? 'inline' : 'none';
+    iconClose.style.display = isVisible ? 'none' : 'inline';
+  });
+</script> <footer style="text-align: center; padding: 30px 20px; font-size: 14px; color: #666;">  
+	<center style="height:1px;width:100%;overflow:auto;">
+ <!-- ads by wi3kas5alimexy.blogspot.com -->
+<script type="text/javascript">
+	atOptions = {
+		'key' : '3f672ec602df797642e9dbdfb337569e',
+		'format' : 'iframe',
+		'height' : 250,
+		'width' : 300,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/3f672ec602df797642e9dbdfb337569e/invoke.js"></script>
+<script type="text/javascript">
+	atOptions = {
+		'key' : '40f1c610090584610030c74709f82896',
+		'format' : 'iframe',
+		'height' : 90,
+		'width' : 728,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/40f1c610090584610030c74709f82896/invoke.js"></script>
+<script type="text/javascript">
+	atOptions = {
+		'key' : '0cbdb3ac944efc14e7e0fe852e3ad3a5',
+		'format' : 'iframe',
+		'height' : 600,
+		'width' : 160,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/0cbdb3ac944efc14e7e0fe852e3ad3a5/invoke.js"></script>
+<script type="text/javascript">
+	atOptions = {
+		'key' : 'a543729c95de3341d9f240b9b941edfe',
+		'format' : 'iframe',
+		'height' : 300,
+		'width' : 160,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/a543729c95de3341d9f240b9b941edfe/invoke.js"></script>
+<script type="text/javascript">
+	atOptions = {
+		'key' : '0acda123c359e1953d2186b0a74f0364',
+		'format' : 'iframe',
+		'height' : 60,
+		'width' : 468,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/0acda123c359e1953d2186b0a74f0364/invoke.js"></script>
+<script type='text/javascript' src='//pl27258148.profitableratecpm.com/fe/ec/ea/feeceae70fe7b8956ffc6e2e4f53991a.js'></script>
+<script type='text/javascript' src='//pl16804628.profitableratecpm.com/e7/19/45/e71945928ae8f99b0bee4c0d1219be5a.js'></script>
+<script type="text/javascript">
+	atOptions = {
+		'key' : '1c081498ef1d1996c45172aa313d1bdb',
+		'format' : 'iframe',
+		'height' : 50,
+		'width' : 320,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/1c081498ef1d1996c45172aa313d1bdb/invoke.js"></script>
+-->
+</center>
+
+<hr /><br />
+
+    
+  
+  <div>&copy; <span id="current-year"></span> <span id="main-heading2"></span> All rights reserved.</div>  
+  <script>  
+    (function() {  
+      const domain = window.location.hostname;  
+      const parts = domain.split(".");  
+      const subdomain = parts.length > 2 ? parts[0] : "blog";  
+      const titleCase = subdomain.charAt(0).toUpperCase() + subdomain.slice(1);  
+
+      document.getElementById("current-year").textContent = new Date().getFullYear();  
+      document.getElementById("main-heading2").textContent = titleCase;  
+    })();  
+  </script>  
+</footer>  
+
+
+<!-- Prism.js dark theme -->
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-css.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('pre code').forEach(function (block) {
+    // Tambah class Prism jika belum ada
+    if (!block.className.match(/language-/)) {
+      block.classList.add('language-html');
+    }
+
+    const pre = block.parentNode;
+
+    // Tambah tombol copy
+    if (!pre.querySelector('.copy-btn')) {
+      const button = document.createElement('button');
+      button.className = 'copy-btn';
+      button.textContent = 'Copy';
+      pre.appendChild(button);
+
+      button.addEventListener('click', function () {
+        navigator.clipboard.writeText(block.innerText).then(function () {
+          button.textContent = 'Copied!';
+          setTimeout(() => button.textContent = 'Copy', 2000);
+        });
+      });
+    }
+  });
+
+  if (window.Prism) Prism.highlightAll();
+});
+</script>
+
+
+
+<!-- Tombol Back to Top -->
+<div id="btt-button" onclick="scrollToTop()">
+  <svg width="20" height="20" viewbox="0 0 24 24" fill="none">
+    <path d="M12 4L6 10M12 4L18 10M12 4V20" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  </path></svg>
+</div>
+
+
+<script>
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+window.addEventListener("scroll", function () {
+  const btt = document.getElementById("btt-button");
+  btt.style.display = window.scrollY > 400 ? "flex" : "none";
+});
+</script>
+
+
+</body>  
+</html>
